@@ -1,0 +1,38 @@
+#redis multi-source
+spring:
+  redis:
+    database: 0
+    timeout: 2000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: 2000
+        max-idle: 0
+        min-idle: 0
+  #1  redis1
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+  #1  redis2
+  redis2:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+  datasource:
+    mysql1:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/cn.weit.MoApplication?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 123456
+      hikari:
+        connectionInitSql: SET NAMES utf8mb4 COLLATE utf8mb4_general_ci;
+    mysql2:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/test2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 123456
+      hikari:
+        connectionInitSql: SET NAMES utf8mb4 COLLATE utf8mb4_general_ci;
+mybatis:
+  config-location: classpath:mapper/*.xml
+  type-aliases-package: cn.weit.happymo.domain
