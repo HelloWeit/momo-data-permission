@@ -36,3 +36,5 @@ spring:
 mybatis:
   config-location: classpath:mapper/*.xml
   type-aliases-package: cn.weit.happymo.domain
+  configuration:
+    lazy-loading-enabled: true
