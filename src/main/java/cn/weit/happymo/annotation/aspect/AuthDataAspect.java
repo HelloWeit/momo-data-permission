@@ -36,10 +36,10 @@ public class AuthDataAspect {
 
     @Before(value = "cn.weit.happymo.annotation.aspect.AuthDataAspect.checkAuthPoint(authData)", argNames = "pjp,authData")
     public void beforeCheckAuth(JoinPoint pjp, AuthData authData) throws Throwable {
-        if (!isOpen) {
-            LOG.debug("Data-auth not turn on");
-            return;
-        }
+//        if (!isOpen) {
+//            LOG.debug("Data-auth not turn on");
+//            return;
+//        }
 //        RequestHolder.addDataHolder();  添加数据开关
         PermissionMeta[] permissionMetas = authData.value();
         if (permissionMetas.length == 0) {
