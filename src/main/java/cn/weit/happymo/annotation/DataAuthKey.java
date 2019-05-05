@@ -1,14 +1,15 @@
 package cn.weit.happymo.annotation;
 
 
+import cn.weit.happymo.constants.DataAuth;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({})
-public @interface PermissionMeta {
-    Class<?> type();
-    int paramPos() default 0;
-    DataAuthKey dataAuthKey();
+public @interface DataAuthKey {
+    DataAuth data();
+    String paramKey();
 }

@@ -12,4 +12,5 @@ import static java.lang.annotation.ElementType.METHOD;
 @Documented
 public @interface AuthData {
     PermissionMeta[] value() default {};
- }
+    boolean isAopCheck() default true;
+}

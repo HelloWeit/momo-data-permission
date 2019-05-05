@@ -48,14 +48,14 @@ public class AuthDataAspect {
         }
 
         for (PermissionMeta permissionMeta : permissionMetas) {
-            if (permissionMeta.data().equals(DataAuth.PRODUCT)) {
+            if (permissionMeta.dataAuthKey().data().equals(DataAuth.PRODUCT)) {
                 Object obj = pjp.getArgs()[permissionMeta.paramPos()];
-                int productId = getServiceInstanceId(obj, permissionMeta.paramKey());
+                int productId = getServiceInstanceId(obj, permissionMeta.dataAuthKey().paramKey());
                 if (permissionMeta.type().equals(Integer.class)) {
                     productId = (int) obj;
                 } else {
                     Map<String, Object> map = MapUtils.obj2Map(obj);
-                    Object object =  map.get(permissionMeta.paramKey());
+                    Object object =  map.get(permissionMeta.dataAuthKey().paramKey());
                 }
                 //todo 处理
             }
